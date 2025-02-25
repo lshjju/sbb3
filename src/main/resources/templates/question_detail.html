@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+<!-- 퀘스천콘트롤러 디테일 메서드의 모델 오브젝에 퀘스천 베리어블로 저장된 서브젝과 콘텐트 데이터를 땡겨옴  -->
+<h1 th:text="${question.subject}"></h1>
+<div th:text="${question.content}"></div>
+<!-- 답변 개수를 의미 -->
+<!-- 사이즈 - 타임리프 기능 - 해당 오브젝의 길이를 리턴 -->
+<h5 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+<div>
+    <ul>
+        <li th:each="answer : ${question.answerList}" th:text="${answer.content}"></li>
+    </ul>
+</div>
+<form th:action="@{|/answer/create/${question.id}|}" method="post">
+    <textarea name="content" id="content" rows="15"></textarea>
+    <input type="submit" value="답변등록">
+</form>
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
