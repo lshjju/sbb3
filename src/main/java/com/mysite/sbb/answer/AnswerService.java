@@ -15,8 +15,6 @@ public class AnswerService {
 	
     private final AnswerRepository answerRepository;
 
-
-    // AnswerController에서 create 을 콜해주면 디비에 리플라이 저장
     public void create(Question question, String content) {
         Answer answer = new Answer();
         answer.setContent(content);
